@@ -1,0 +1,84 @@
+.channelBanner {
+    height: 12vh;
+    width: 94%;
+    margin: 0 auto;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.containerInfo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.channelInfoBellow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    max-width: 100%;
+    
+    h1 {
+        font-size: 2rem;
+        color: #F1F1F1;
+        margin: 0.5vh 0 1vh;
+    }
+
+    .subscribe-btn {
+        background-color: white;
+        margin-top: 2vh;
+        color: #0F0F0F;
+        border: none;
+        width: 90%;
+        height: 35px;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}
+
+.channelDescription {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: auto;
+
+    span {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        width: 85%;
+        text-align: center;
+    }
+
+    i {
+        float: right;
+        align-self: flex-end;
+    }
+}
+
+.channelImage {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin-top: 2vh;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

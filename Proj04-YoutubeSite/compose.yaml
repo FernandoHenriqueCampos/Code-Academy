@@ -1,0 +1,8 @@
+services:
+  youtube-frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    container_name: youtube_clone_app
