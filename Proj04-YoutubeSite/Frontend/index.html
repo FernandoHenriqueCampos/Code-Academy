@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youtube Clone - MrBeast</title>
+    <link rel="shortcut icon" href="./Assets/youtube.png" type="image/x-icon">
+    <title>Youtube</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+NZ+Basic:wght@100..400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./Style/components/base.css">
+    <link rel="stylesheet" href="./Style/components/header.css">
+    <link rel="stylesheet" href="./Style/components/channel.css">
+    <link rel="stylesheet" href="./Style/components/videos.css">
+    <link rel="stylesheet" href="./Style/components/navbar.css">
+    <link rel="stylesheet" href="./Style/components/modal.css">
+    <link rel="stylesheet" href="./Style/components/utilities.css">
+    <link rel="stylesheet" href="./Style/media.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body>
@@ -154,7 +162,7 @@
     <nav class="LargeNavbar Desktop" id="menuLarge">
         <div class="PatternSelection">
             <ul>
-                <li tabindex="0"><i class="bi bi-house-fill active" aria-hidden="true"></i><span>Início</span></li>
+                <li tabindex="0" class="active"><i class="bi bi-house-fill" aria-hidden="true"></i><span>Início</span></li>
                 <li tabindex="0"><i class="bi bi-search" aria-hidden="true"></i><span>Shorts</span></li>
             </ul>
         </div>
@@ -163,12 +171,12 @@
                 <h1>Inscrições</h1>
                 <i class="bi bi-chevron-right"></i>
             </div>
+            
             <ul>
-                <div class="channelSubs">
-                    <div class="channelImageSubs">
-                        <img src="" alt="">
-                    </div>
-                    <p>Channel Name</p>
+                <div class="channelSub">
+                    <img src="./Assets/profile.jpg" alt="Imagem de perfil">
+                    <p>MrBeast</p>
+                    <i class="bi bi-dot"></i>
                 </div>
             </ul>
         </div>
@@ -179,7 +187,7 @@
             </div>
             <ul>
                 <li tabindex="0"><i class="bi bi-clock-history" aria-hidden="true"></i><span>Histórico</span></li>
-                <li tabindex="0"><i class="bi bi-list-nested" aria-hidden="true"></i><span>Playlists</span></li>
+                <li tabindex="0"><i class="bi bi-list" aria-hidden="true"></i><span>Playlists</span></li>
                 <li tabindex="0"><i class="bi bi-clock" aria-hidden="true"></i><span>Assistir mais tarde</span></li>
                 <li tabindex="0"><i class="bi bi-hand-thumbs-up" aria-hidden="true"></i><span>Vídeos curtidos</span></li>
                 <li tabindex="0"><i class="bi bi-download" aria-hidden="true"></i><span>Downloads</span></li>
@@ -198,10 +206,6 @@
             </ul>
         </div>
         <div class="Settings menuContainer">
-            <div class="SettingsTitle">
-                <h1>Configurações</h1>
-                <i class="bi bi-chevron-right"></i>
-            </div>
             <ul>
                 <li tabindex="0"><i class="bi bi-gear" aria-hidden="true"></i><span>Configurações</span></li>
                 <li tabindex="0"><i class="bi bi-flag" aria-hidden="true"></i><span>Histórico de Denúncias</span></li>
@@ -222,7 +226,7 @@
             <p>Política e segurança</p>
             <p>Como funciona o YouTube</p>
             <p>Teste novos recursos</p>
-            <p>© 2026 Google LLC</p>
+            <h1>© 2026 Google LLC</h1>
         </div>
     </nav>
 

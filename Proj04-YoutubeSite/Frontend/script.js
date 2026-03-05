@@ -1,29 +1,35 @@
-let isOpen = true;
+let isOpen = open;
 
 function openMenu() {
-    const menu = document.getElementById("menu");
-    const main = document.getElementById("main");
-    const navFilterVideo = document.getElementById("navFilterVideo");
+    const menuSmall = document.getElementById("menu");
     const menuLarge = document.getElementById("menuLarge");
+    const main = document.getElementById("main");
 
     if (window.innerWidth <= 768) {
-        menu.style.display = "block";
+        menuSmall.style.display = "block";
         return;
     }
-    
+
     if (isOpen) {
-        menu.classList.remove("open");
+        menuLarge.classList.remove("visible");
+        
+        setTimeout(() => {
+            menuSmall.classList.remove("hidden");
+        }, 100);
+
         main.classList.remove("open");
-        navFilterVideo.classList.remove("open");
-        menu.style.display = "flex";
-        menuLarge.style.display = "none";
+        main.style.marginLeft = "70px";
         isOpen = false;
     } else {
-        menu.classList.add("open");
+        menuSmall.classList.add("hidden");
+
+        setTimeout(() => {
+            menuLarge.classList.add("visible");
+            menuLarge.scrollTop = 0;
+        }, 50);
+
         main.classList.add("open");
-        navFilterVideo.classList.add("open");
-        menuLarge.style.display = "flex";
-        menu.style.display = "none";
+        main.style.marginLeft = "240px";
         isOpen = true;
     }
 }
