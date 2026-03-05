@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player de Música</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/icon.png" type="image/x-icon">
+</head>
+<body>
+    <main id="container">
+        <header>
+            <h1 class="playlist-name">Playlist</h1>
+        </header>
+
+        <picture class="cover-container">
+            <img id="cover" class="cover" src="" alt="Capa do álbum">
+        </picture>
+
+        <audio src="" id="song"></audio>
+
+        <section class="below-cover">
+            <article id="song-info" class="song-info">
+                <strong id="song-name" class="song-name">Nome da música</strong>
+                <span id="artist-name" class="artist-name light-color">Artista</span>
+            </article>
+
+            <button id="like" class="button" aria-label="Curtir">
+                <i class="bi bi-heart"></i>
+            </button>
+        </section>
+        
+        <section id="progress-container">
+            <div id="progress-bar" class="progress-bar" role="progressbar">
+                <div id="current-progress" class="current-progress"></div>
+            </div>
+            <div class="time-container">
+                <time id="current-time">0:00</time>
+                <time id="duration">0:00</time>
+            </div>
+        </section>
+            
+        <nav class="button-container">
+            <button id="shuffle" class="button"><i class="bi bi-shuffle"></i></button>
+            <button id="previous" class="button button-navigate"><i class="bi bi-skip-start-fill"></i></button>
+            <button id="play" class="button button-biggest"><i class="bi bi-play-circle-fill"></i></button>
+            <button id="next" class="button button-navigate"><i class="bi bi-skip-end-fill"></i></button>
+            <button id="repeat" class="button"><i class="bi bi-repeat"></i></button>
+        </nav>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

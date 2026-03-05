@@ -1,0 +1,6 @@
+services:
+  apache-server:
+    build: .
+    image: meu-site-apache:latest
+    ports:
+      - "8080:80"

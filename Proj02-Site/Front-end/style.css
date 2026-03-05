@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+
+:root {
+    --font-family: 'Playwrite NZ Basic', cursive;
+    --font-formal: sans-serif;
+    --bg-color: #191A21;
+    --span-color: #76787E;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("./assets/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 90vh;
+    width: 90vw;
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    color: white;
+    font-family: var(--font-family);
+}
+
+aside.sidebar{
+    height: 100%;
+    width: 15%;
+    border-right: 2px outset gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 10%;
+
+    li {
+        list-style: none;
+        margin-bottom: 10px;
+    }
+
+    a {
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: var(--span-color);
+        font-family: var(--font-family);
+    }
+    a.active {
+        color: white;
+        font-size: 0.95rem;
+    }
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 50%;
+    margin: 0;
+
+    h1 {
+        font-size: 1rem;
+        font-family: var(--font-formal);
+        margin: 0;
+    }
+    span {
+        color: var(--span-color);
+        font-family: var(--font-formal);
+        font-size: 0.8rem;
+    }
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 50%;
+    width: 100%;
+
+    button {
+        border-radius: 50%;
+        border: 1px solid;
+        background-color: transparent;
+        color: white;
+        font-size: 0.8rem;
+        font-family: var(--font-family);
+        width: 40px;
+        height: 40px;
+        transition: all 0.6s ease;
+    }
+
+    button:hover {
+        background-color: white;
+        color: black;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 70%;
+    align-items: center;
+    width: 100%;
+    height: 8vh;
+    margin-top: 3vh;
+
+    h1 {
+        padding-left: 5%;
+        font-size: 1.5rem;
+        font-family: var(--font-family);    
+        margin: 0;
+    }
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 5%;
+    gap: 20px;
+    width: 30%;
+    height: 8vh;
+
+    i{
+        border-radius: 50%;
+        border: 1px solid var(--span-color);
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        transition: all 0.3s ease;
+    }
+
+    i:hover {
+        background-color: white;
+        color: black;
+        border-color: white;
+        cursor: pointer;
+    }
+    #i-border-white {
+        border-color: white;
+    }
+}
+
+section.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 15px;
+    padding: 20px;
+    width: 90%;
+    margin: 0 5% 0 5%;
+    box-sizing: border-box;
+    overflow-y: hidden; 
+    height: 100%; 
+}
+
+.card {
+    background-color: #1F2029;
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; 
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+.card.long {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: auto;
+
+    .card-info {
+        padding: 0 1% 0 1%;
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 4%;
+            font-family: var(--font-formal);
+            font-weight: 100;
+            margin: 4% 0 0 0;
+        }
+        
+        span {
+            color: var(--span-color);
+            font-size: 0.8rem;
+            display: block;
+        }
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .img-container img {
+        max-width: 98%;
+        max-height: 100%;
+        background-color: white;
+        object-fit: contain;
+        margin: 1% 1% 0 1%;
+    }
+
+    .img-container {
+        height: 79%;
+    }
+}
+
+
+
+.card.wide {
+    grid-column: span 2;
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+    margin: 0;
+    justify-content: flex-start;
+
+    .card-info {
+        padding-left: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 100;
+            margin-top: 4%;
+            font-family: var(--font-formal);
+            margin: 5px 0;
+        }
+        
+        span {
+            color: var(--span-color);
+            font-size: 0.8rem;
+            display: block;
+        }
+    }
+}
+
+.wide .img-container {
+    width: 45%;
+    height: 100%;
+    background-color: white;
+    object-fit: contain;
+    margin: 1% 1% 0 1%;
+    border-radius: 20px;
+
+    .img-container {
+        height: 79%;
+    }
+}
+
+.card.small {
+    grid-column: span 1;
+    grid-row: span 1;
+    height: 140%;
+    margin: 0;
+    justify-content: flex-start;
+
+    .img-container {
+        max-width: 98%;
+        max-height: 60%;
+        background-color: white;
+        object-fit: contain;
+        margin: 1% 1% 0 1%;
+        border-radius: 20px;
+    }
+
+    .card-info {
+        padding-left: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 100;
+            margin-top: 4%;
+            font-family: var(--font-formal);
+            margin: 5px 0;
+            color: white;
+        }
+        
+        span {
+            color: var(--span-color);
+            font-size: 0.8rem;
+            display: block;
+        }
+    }
+}
