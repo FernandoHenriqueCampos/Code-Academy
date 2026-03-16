@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>PHP/JS CRUD Project</h1>
+    </header>
+    <main>
+        <section class="usersShow">
+            <h1>Users</h1>
+            <div id="cards" class="cards"></div>
+        </section>
+
+        <section class="postPutUser">
+            <h1 id="EditCreate">Create User</h1>
+            <form action="">
+                <div class="Input">
+                    <label for="name">Name</label>
+                    <input type="text" id="name">
+                </div>
+
+                <div class="Input">
+                    <label for="age">Age</label>
+                    <input type="number" id="age">
+                </div>
+
+                <div class="Input">
+                    <label for="email">Email</label>
+                    <input type="email" id="email">
+                </div>
+
+                <button id="createButton" type="button" onclick="postButtonUser()">Create</button>
+
+                <button id="updateButton" type="button" class="updateButton edit" onclick="handleUpdateClick()">
+                    Update
+                </button>
+                <button id="cancelButton" type="button" class="cancelButton edit" onclick="cancelDisplayButton()">Cancel</button>
+            </form>
+        </section>
+    </main>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -28,11 +28,28 @@ Cada pasta representa um projeto ou desafio específico realizado durante o curs
 
 #### 🔹 Proj01-Docker
 
-> Criação de uma imagem e execução de um container utilizando Docker.
+> **Containerização e Infraestrutura**
+> Implementação de ambientes isolados através da criação de imagens personalizadas e orquestração de containers. O foco foi garantir a portabilidade da aplicação e a padronização do ambiente de desenvolvimento, utilizando Dockerfiles otimizados para deploy.
 
 #### 🔹 Proj02-Site
 
-> Desenvolvimento de um site estático com o objetivo de reforçar conhecimentos em HTML e CSS, reproduzindo um design moderno.
+> **Desenvolvimento Web Estático**
+> Construção de uma interface moderna explorando os fundamentos de design visual e estruturação de documentos. O projeto priorizou a fidelidade técnica ao layout proposto, aplicando conceitos de estilização avançada, tipografia e organização de seletores para criar um site visualmente impactante.
+
+#### 🔹 Proj03-Spotify
+
+> **Interface de Streaming de Áudio**
+> Desenvolvimento de um player de música funcional com foco em lógica de programação e manipulação de mídia. Implementa controles de fluxo (play/pause, navegação, shuffle e repeat) e gerenciamento de estados, resultando em uma experiência de usuário (UX) fluida e interativa.
+
+#### 🔹 Proj04-Youtube
+
+> **Interface Responsiva com HTML Semântico**
+> Construção de um clone da interface do YouTube focado em arquitetura de layout avançada. Utiliza uma combinação estratégica de **CSS Grid** e **Flexbox** para garantir total responsividade, além de aplicar tags semânticas para SEO e acessibilidade, replicando fielmente componentes complexos como barras laterais e grades de conteúdo.
+
+#### 🔹 Proj05-Crud
+
+> **Gerenciador de Usuários (Integração com API)**
+> Aplicação voltada à comunicação entre frontend e backend. O foco central foi o domínio do protocolo **HTTP** e das operações **CRUD**, utilizando a Fetch API para realizar o consumo de dados, além de gerenciar a interface dinamicamente conforme as respostas do servidor (criação, leitura, atualização e exclusão de registros).
 
 ---
 
@@ -41,7 +58,7 @@ Cada pasta representa um projeto ou desafio específico realizado durante o curs
 Dentro de cada pasta você encontrará:
 
 - Código-fonte do projeto
-- Arquivos **HTML**, **CSS** e **JavaScript**
+- Arquivos **HTML**, **CSS** , **JavaScript** e **Docker**
 - Recursos utilizados (imagens, fontes, etc.)
 - `README.md` individual (quando necessário)
 
