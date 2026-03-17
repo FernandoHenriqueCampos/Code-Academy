@@ -1,9 +1,10 @@
-export async function getUsers(API_URL) {
+import { getUsers } from "../api/read.js";
+
+export async function renderUsers(API_URL) {
     const cards = document.getElementById('cards');
     
     try {
-        const response = await fetch(`${API_URL}/users`);
-        const data = await response.json();
+        const data = await getUsers(API_URL);
 
         if (!data.users || data.users.length === 0) {
             cards.innerHTML = '<span class="noUser">No user found</span>';
@@ -14,7 +15,7 @@ export async function getUsers(API_URL) {
         
         data.users.forEach(user => {
             cards.innerHTML += `
-                <div class="card">
+                <section class="card">
                     <div class="card-body">
                         <h1>${user.name}</h1>
                         <div class="card-field">
@@ -30,7 +31,7 @@ export async function getUsers(API_URL) {
                         <button class="editButton" onclick="editButtonUser(${user.id}, '${user.name}', ${user.age}, '${user.email}')">Editar</button>
                         <button class="deleteButton" onclick="deleteButtonUser(${user.id})">Deletar</button>
                     </div>
-                </div>
+                </section>
             `;
         });
     } catch (error) {
