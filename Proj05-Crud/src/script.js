@@ -1,21 +1,21 @@
-import { getUsers } from './api/get.js';
-import { deleteUser } from './api/delete.js';
-import { postUser } from './api/post.js';
-import { updateUser } from './api/put.js';
+import { renderUsers } from './scripts/dom/render.js';
+import { deleteUser } from './scripts/api/delete.js';
+import { postUser } from './scripts/api/create.js';
+import { updateUser } from './scripts/api/update.js';
 
 
 const API_URL = 'http://localhost:8000/api';
 
 let Editmode = false;
 
-getUsers(API_URL);
+renderUsers(API_URL);
 
 window.deleteButtonUser = deleteButtonUser;
 
 async function deleteButtonUser(id) {
     try {   
         await deleteUser(id, API_URL);
-        getUsers(API_URL);
+        renderUsers(API_URL);
     } catch (error) {
         console.log(error);
     }
@@ -30,7 +30,7 @@ async function postButtonUser() {
         
     try {
         await postUser(name, age, email, API_URL);
-        getUsers(API_URL);
+        renderUsers(API_URL);
     } catch (error) {
         console.log(error);
     }
@@ -84,7 +84,7 @@ window.handleUpdateClick = async function() {
 
     await updateUser(currentEditId, API_URL, changes);
     
-    getUsers(API_URL); 
+    renderUsers(API_URL); 
     cancelDisplayButton(); 
 };
 
@@ -97,7 +97,7 @@ async function handleUpdate() {
 
     await updateUser(currentEditId, API_URL, name, age, email);
     
-    getUsers(API_URL); 
+    renderUsers(API_URL); 
     cancelDisplayButton(); 
 }
 
