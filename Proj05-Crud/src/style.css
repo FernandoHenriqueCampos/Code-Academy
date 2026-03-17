@@ -1,229 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap');
+
 :root {
-    --border-color: #f2f2f2;
-    --background-color: #f9f9f9;
+    --bg: #0f0f0f;
+    --surface: #1a1a1a;
+    --surface-2: #242424;
+    --border: #2e2e2e;
+    --accent: #c8f135;
+    --accent-dim: rgba(200, 241, 53, 0.12);
+    --text: #f0f0f0;
+    --text-muted: #6b6b6b;
+    --text-dim: #9a9a9a;
+    --danger: #ff4d4d;
+    --danger-dim: rgba(255, 77, 77, 0.1);
+    --radius: 12px;
+    --radius-sm: 6px;
+    --mono: 'DM Mono', monospace;
+    --display: 'Syne', sans-serif;
 }
 
-* {
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
-    font-family: sans-serif;
+    padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--display);
+    min-height: 100vh;
     width: 100%;
+}
+
+header {
+    background-color: rgba(15,15,15,0.85);
+    border-bottom: 1px solid var(--border);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    width: 100%;
+}
+
+header h1 {
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text);
+    width: auto;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+header h1::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.75); }
+}
+
+main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.usersShow,
+section.postPutUser {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    width: 100%;
+    height: auto;
+}
+
+.usersShow > h1,
+.postPutUser > h1 {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+}
+
+.usersShow > h1::after,
+.postPutUser > h1::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.cards {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 0.5rem;
+    flex-wrap: nowrap;
+    width: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+.cards:empty::after {
+    content: 'Nenhum usuário cadastrado ainda.';
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    display: block;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+.cards::-webkit-scrollbar       { height: 4px; }
+.cards::-webkit-scrollbar-track { background: transparent; }
+.cards::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+.card {
+    flex-shrink: 0;
+    width: 200px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    animation: cardIn 0.3s ease both;
+    height: auto;
+}
+
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.card-body {
+    padding: 0.75rem;
+}
+
+.card h1 {
+    font-family: var(--display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.4rem;
+    width: 100%;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.card-field {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    margin-bottom: 0.2rem;
+    width: 100%;
+}
+
+.card-field .label {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+    width: auto;
+}
+
+.card-field .value {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+    flex: 1;
+}
+
+.buttonContainer {
+    display: flex;
+    border-top: 1px solid var(--border);
+    width: 100%;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 0;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.buttonContainer button {
+    flex: 1;
+    height: 30px;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent;
+    width: auto;
+    padding: 0;
+    color: var(--text-muted);
+}
+
+.editButton {
+    border-right: 1px solid var(--border) !important;
+    color: var(--text-dim) !important;
+}
+
+.editButton:hover {
+    background-color: var(--accent-dim) !important;
+    color: var(--accent) !important;
+}
+
+.deleteButton:hover {
+    background-color: var(--danger-dim) !important;
+    color: var(--danger) !important;
 }
 
 form {
-    width: 100%;
     display: flex;
-}
-
-input {
-    width: 95%;
-    margin: 0 auto;
-    border-radius: 5px;
-    border: 1px solid var(--border-color);
-    height: 30px;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+    width: 100%;
 }
 
 .Input {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-    width: 25%;
+    gap: 0.4rem;
+    flex: 1 1 160px;
+    min-width: 130px;
+    width: auto;
 }
 
 label {
-    font-size: 1rem;
+    font-family: var(--mono);
+    font-size: 0.68rem;
     font-weight: 500;
-    padding-left: 5px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-left: 0;
+    width: auto;
 }
 
-button:hover {
-    cursor: pointer;
-
-    &:hover {
-        background-color: white;
-        color: black;
-        border: 1px solid black;
-        transition: all 0.5s ease-in-out;
-    }
-}
-
-header {
-    color: white;
-    font-family: sans-serif;
-    background-color: black;
-    font-size: 1rem;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+input {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    height: 40px;
+    padding: 0 0.75rem;
     width: 100%;
-
-    h1 {
-        margin: 0 auto;
-        width: auto;
-    }
-}
-
-main {
-    background-color: var(--background-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 93vh;
-}
-
-.usersShow {
-    display: flex;
-    background-color: white;
-    border: 1px solid var(--border-color);
-    height: 150px;
-    width: 80%;
-    margin: 1rem 0;
-    border-radius: 10px;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    
-    span {
-        margin: auto 0;
-        color: rgb(88, 88, 88);
-    }
-}
-
-section {
-    display: flex;
-    background-color: white;
-    border: 1px solid var(--border-color);
-    height: 150px;
-    width: 80%;
-    margin: 1rem 0;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-
-    button {
-        height: 35px;
-        align-self: flex-end;
-        border-radius: 5px;
-        color: white;
-        background-color: black;
-        border: none;
-    }
-
-    .buttonContainer {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        width: 100%;
-        height: 20%;
-        background-color: transparent;
-        padding: 3% 0;
-        border: 1px solid var(--border-color);
-        border-radius: 0 0 5px 5px;
-        justify-self: flex-end;
-    
-        button {
-            width: 48%;
-            height: 20px;
-            background-color: transparent;
-            margin: 0 1%;
-        }
-
-        .editButton {
-            border: 1px solid black;
-            color: black;
-
-            &:hover {
-                background-color: black;
-                color: white;
-                border: none;
-                transition: all 0.5s ease-in-out;
-            }
-        }
-
-        .deleteButton {
-            border: 1px solid red;
-            color: red;
-
-            &:hover {
-                background-color: red;
-                color: white;
-                border: none;
-                transition: all 0.5s ease-in-out;
-            }
-        }
-    }
-}
-
-.cards {
-    display: flex;
-    justify-content: flex-start;
-    height: 100%;
-    width: 100%;
-    gap: 10px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    flex-wrap: nowrap;
-}
-
-.card {
-    flex-shrink: 0;
-    width: 20%;
-    height: 100px;
     margin: 0;
-    border: 1px solid var(--border-color);
-    border-bottom: none;
-    text-wrap: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
 
-    h1 {
-        padding-left: 10px;
-        font-size: 0.8rem;
+input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+input::placeholder {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    width: auto;
+    flex-shrink: 0;
+    align-self: flex-end;
+}
+
+button {
+    font-family: var(--display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    border-radius: var(--radius-sm);
+    height: 40px;
+    padding: 0 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    width: auto;
+    border: none;
+}
+
+#createButton {
+    background: var(--accent);
+    color: #0f0f0f;
+}
+
+#createButton:hover {
+    background: #fff;
+    color: #0f0f0f;
+    border: none;
+}
+
+.updateButton {
+    background: var(--accent) !important;
+    color: #0f0f0f !important;
+    width: auto !important;
+}
+
+.updateButton:hover {
+    background: #fff !important;
+    color: #0f0f0f !important;
+}
+
+.cancelButton {
+    background: transparent !important;
+    color: var(--text-muted) !important;
+    border: 1px solid var(--border) !important;
+    width: auto !important;
+    margin-left: 0 !important;
+}
+
+.cancelButton:hover {
+    background: var(--surface-2) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--text-muted) !important;
+}
+
+.edit { display: none; }
+
+@media (max-width: 768px) {
+    header { padding: 0 1rem; }
+
+    main { padding: 1.25rem 1rem 3rem; gap: 1rem; }
+
+    .usersShow,
+    section.postPutUser { padding: 1.25rem 1rem; }
+
+    .card { width: 170px; }
+
+    form {
+        flex-direction: column;
+        gap: 0.75rem;
     }
 
-    span {
-        font-size: 0.6rem;
+    .Input {
+        flex: none;
+        width: 100%;
+        min-width: 0;
     }
 
-    .bold {
-        font-weight: bold;
-        padding: 0 2px 0 10px;
+    .form-actions {
+        width: 100%;
+        justify-content: flex-end;
     }
 }
 
-.edit {
-    display: none;
-}
+@media (max-width: 480px) {
+    header h1 { font-size: 0.8rem; }
 
-.postPutUser {
-    padding: 1rem;
+    .card { width: 148px; }
+    .card h1 { font-size: 0.78rem; }
 
-    button {
-        width: 25%;
+    .form-actions {
+        flex-direction: column;
     }
 
-    .updateButton {
-        width: 14%;
-    }
-
-    .cancelButton {
-        width: 10%;
-        margin-left: 1%;
-        border: 1px solid #b7b7b7;
-        background-color: transparent;
-        color: #b7b7b7;
-
-        &:hover {
-            background-color: black;
-            color: white;
-            border: none;
-            transition: all 0.5s ease-in-out;            
-        }
+    .form-actions button {
+        width: 100%;
     }
 }

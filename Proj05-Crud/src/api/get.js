@@ -15,17 +15,20 @@ export async function getUsers(API_URL) {
         data.users.forEach(user => {
             cards.innerHTML += `
                 <section class="card">
-                    <h1>${user.name}</h1>
-                    <div class="rowDiv"><span class="bold">Age:</span><span>${user.age}</span></div>
-                    <div class="rowDiv"><span class="bold">Email:</span><span>${user.email}</span></div>
+                    <div class="card-body">
+                        <h1>${user.name}</h1>
+                        <div class="card-field">
+                            <span class="label">idade</span>
+                            <span class="value">${user.age}</span>
+                        </div>
+                        <div class="card-field">
+                            <span class="label">email</span>
+                            <span class="value">${user.email}</span>
+                        </div>
+                    </div>
                     <div class="buttonContainer">
-                        <button type="button" class="editButton" 
-                            onclick="editButtonUser(${user.id}, '${user.name}', ${user.age}, '${user.email}')">
-                            Edit
-                        </button>
-                        <button type="button" class="deleteButton" onclick="deleteButtonUser(${user.id})">
-                            Delete
-                        </button>
+                        <button class="editButton" onclick="editUser(${user.id})">Editar</button>
+                        <button class="deleteButton" onclick="deleteUser(${user.id})">Deletar</button>
                     </div>
                 </section>
             `;
