@@ -1,0 +1,8 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: crud-axios-frontend
+    ports:
+      - "8080:80"
