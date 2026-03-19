@@ -51,6 +51,11 @@ Cada pasta representa um projeto ou desafio específico realizado durante o curs
 > **Gerenciador de Usuários (Integração com API)**
 > Aplicação voltada à comunicação entre frontend e backend. O foco central foi o domínio do protocolo **HTTP** e das operações **CRUD**, utilizando a Fetch API para realizar o consumo de dados, além de gerenciar a interface dinamicamente conforme as respostas do servidor (criação, leitura, atualização e exclusão de registros).
 
+#### 🔹 Proj06-Crud-Axios
+
+> **Gerenciador de Usuários — Axios & Observabilidade**
+> Evolução direta do Proj05, reescrito para consolidar o uso do **Axios** como cliente HTTP em substituição à Fetch API nativa. Além da reescrita das requisições, o projeto ganhou identidade própria com um novo sistema visual e uma funcionalidade extra: um **console de requisições em tempo real** embutido na interface, inspirado em terminais Linux/macOS. O console exibe método, URL, body, status e mensagens de erro personalizadas da API a cada chamada — tornando o ciclo HTTP completamente observável sem abrir o DevTools. O código foi organizado em camadas separadas: `api/` para requisições, `dom/` para renderização e `console/` para o sistema de log.
+
 ---
 
 ### 📦 Estrutura Interna de Cada Projeto
