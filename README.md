@@ -56,6 +56,11 @@ Cada pasta representa um projeto ou desafio específico realizado durante o curs
 > **Gerenciador de Usuários — Axios & Observabilidade**
 > Evolução direta do Proj05, reescrito para consolidar o uso do **Axios** como cliente HTTP em substituição à Fetch API nativa. Além da reescrita das requisições, o projeto ganhou identidade própria com um novo sistema visual e uma funcionalidade extra: um **console de requisições em tempo real** embutido na interface, inspirado em terminais Linux/macOS. O console exibe método, URL, body, status e mensagens de erro personalizadas da API a cada chamada — tornando o ciclo HTTP completamente observável sem abrir o DevTools. O código foi organizado em camadas separadas: `api/` para requisições, `dom/` para renderização e `console/` para o sistema de log.
 
+#### 🔹 Proj07-ReatividadeVue
+
+> **Exploração de Reatividade — Vue 3 Composition API**
+> Projeto focado no domínio do sistema de reatividade do Vue 3, utilizando a sintaxe `<script setup>`. A aplicação demonstra de forma prática a gestão de estados complexos com `ref` e `reactive`, além de transformações de dados em tempo real com `computed`. O diferencial do projeto é um **Monitor de Lifecycle**, que permite observar visualmente o disparo dos hooks (`onMounted`, `onUpdated`, etc.) conforme o usuário interage com os componentes. A estrutura foi modularizada em seções independentes para exemplificar a comunicação entre componentes via `props` e `emits`, consolidando padrões de arquitetura para interfaces modernas e performáticas.
+
 ---
 
 ### 📦 Estrutura Interna de Cada Projeto
