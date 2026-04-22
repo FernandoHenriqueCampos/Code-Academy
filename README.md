@@ -66,6 +66,11 @@ Cada pasta representa um projeto ou desafio específico realizado durante o curs
 > **Cardápio Digital Interativo com Vue 3**
 > Aplicação completa de cardápio digital desenvolvida com Vue 3 e Composition API, focada em experiência de usuário (UX) e gerenciamento de estado. O projeto implementa um sistema de categorias com abas interativas, filtros dinâmicos, modal de detalhes do produto com zoom e carrinho de compras com cálculo automático de totais.
 
+#### 🔹 Proj09-CardapioDigitalVue2
+
+> **Ramen Monolith Commerce Suite (Vue 3 + Vite)**
+> Evolução do cardápio digital para uma SPA completa com frente de loja e painel administrativo. Inclui jornada pública com catálogo interativo, carrinho e checkout com confirmação de pagamento, baixa automática de estoque após vendas, dashboard com métricas e tendências (7D/30D/90D), autenticação para área admin e persistência local via `localStorage`, simulando um fluxo operacional real de ecommerce/restaurante.
+
 ---
 
 ### 📦 Estrutura Interna de Cada Projeto
